@@ -8,7 +8,11 @@
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "targets": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -115,6 +119,41 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ngx-datepicker-material": {
+      "root": "projects/ngx-datepicker-material",
+      "sourceRoot": "projects/ngx-datepicker-material/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-datepicker-material/tsconfig.lib.json",
+            "project": "projects/ngx-datepicker-material/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-datepicker-material/src/test.ts",
+            "tsConfig": "projects/ngx-datepicker-material/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-datepicker-material/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-datepicker-material/tsconfig.lib.json",
+              "projects/ngx-datepicker-material/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]

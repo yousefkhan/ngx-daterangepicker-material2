@@ -5,11 +5,18 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build_lib": "ng build ngx-datepicker-material",
+    "copy-license": "copy .\\LICENSE .\\dist\\ng-example-library",
+    "copy-readme": "copy .\\README.md .\\dist\\ng-example-library",
+    "copy-files": "npm run copy-license && npm run copy-readme",
+    "npm_pack": "cd dist/ngx-datepicker-material && npm pack",
+    "package": "npm run build_lib && npm run copy-files && npm run npm_pack",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
   "private": true,
+  "peerDependencies": {},
   "dependencies": {
     "@angular/animations": "^6.1.0",
     "@angular/common": "^6.1.0",
@@ -21,11 +28,14 @@
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
     "core-js": "^2.5.4",
+    "moment": "^2.22.2",
+    "ngx-datepicker-material": "file:dist/ngx-datepicker-material/ngx-datepicker-material-0.0.1.tgz",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.8.0",
+    "@angular-devkit/build-ng-packagr": "~0.8.0",
     "@angular/cli": "~6.2.1",
     "@angular/compiler-cli": "^6.1.0",
     "@angular/language-service": "^6.1.0",
@@ -40,8 +50,11 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "ng-packagr": "^4.1.0",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
+    "tsickle": ">=0.29.0",
+    "tslib": "^1.9.0",
     "tslint": "~5.11.0",
     "typescript": "~2.9.2"
   }
