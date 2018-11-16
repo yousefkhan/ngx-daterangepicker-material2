@@ -1,6 +1,6 @@
 {
   "name": "ngx-datepicker-material",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This is a customized date range selector for angular 2+. Extended from https://github.com/fetrarij/ngx-daterangepicker-material",
   "keywords" :[
     "angular2",
