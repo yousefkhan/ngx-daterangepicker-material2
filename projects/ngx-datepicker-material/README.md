@@ -90,15 +90,6 @@ You can use the component directly in your templates, which will set its `inline
 
 >These options are booleans
 
-### material
-> Set it true to use your primary, accent and warn colors in the widget. 
-```scss
-<!-- You will have to set following css (in main css) to make date selection color according to theme. -->
-.md-drppicker td.active, .md-drppicker td.active:hover {
-  background-color: mat-color($your-primary-color) !important;
-}
-```
-
 ### isCustomDate
 
 >(function) A function that is passed each date in the calendars before they are displayed, and may return a string or array of CSS class names to apply to that date's calendar cell

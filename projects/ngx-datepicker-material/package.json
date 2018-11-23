@@ -1,6 +1,6 @@
 {
   "name": "ngx-datepicker-material",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "This is a customized date range selector for angular 2+. Extended from https://github.com/fetrarij/ngx-daterangepicker-material",
   "keywords" :[
     "angular2",
@@ -18,10 +18,10 @@
     "moment",
     "picker"
   ],
-  "license" : "SEE LICENSE IN LICENSE",
+  "license" : "https://github.com/yousefkhan/ngx-daterangepicker-material2/blob/master/LICENSE",
   "repository": {
     "type" : "git",
-    "url" : "https://github.com/t-palmer/ng-example-library"
+    "url" : "https://github.com/yousefkhan/ngx-daterangepicker-material2"
   },
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
