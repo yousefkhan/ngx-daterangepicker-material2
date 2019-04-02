@@ -34,6 +34,9 @@ export class DaterangepickerComponent implements OnInit {
     endDate = moment().endOf('day');
     dateLimit = null;
 
+    showApplyButton = false;
+    @Input()
+    showApplyOnlyForCustom: Boolean = false;
     @Input()
     minDate: _moment.Moment = null;
     @Input()
@@ -78,7 +81,7 @@ export class DaterangepickerComponent implements OnInit {
         weekLabel: 'W',
         applyLabel: 'Apply',
         cancelLabel: 'Cancel',
-        customRangeLabel: 'Custom range',
+        customRangeLabel: 'Custom Range',
         daysOfWeek: moment.weekdaysMin(),
         monthNames: moment.monthsShort(),
         firstDay: moment.localeData().firstDayOfWeek()
@@ -441,6 +444,10 @@ export class DaterangepickerComponent implements OnInit {
             this.updateElement();
         }
 
+        if(this.showApplyOnlyForCustom && this.chosenRange == this.locale.customRangeLabel){
+            this.showApplyButton = false;
+        }
+
         this.updateMonthsInView();
         this.datesUpdated.emit({startDate: this.startDate, endDate: this.endDate});
 
@@ -571,6 +578,9 @@ export class DaterangepickerComponent implements OnInit {
                 i++;
             }
             if (customRange) {
+                if(this.showApplyOnlyForCustom) {
+                    this.showApplyButton = true;
+                }
                 if (this.showCustomRangeLabel) {
                     this.chosenRange = this.locale.customRangeLabel;
                 } else {
@@ -578,6 +588,8 @@ export class DaterangepickerComponent implements OnInit {
                 }
                 // if custom label: show calenar
                 this.showCalInRanges = true;
+            } else {
+                this.showApplyButton = false;
             }
         }
 
